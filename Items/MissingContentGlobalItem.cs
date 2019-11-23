@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using MissingContent.Extensions;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -33,6 +34,20 @@ namespace MissingContent.Items
                     player.buffImmune[BuffID.Frozen] = true;
                     player.buffImmune[BuffID.Stoned] = true;
                     break;
+            }
+        }
+
+        public override void UpdateInventory(Item item, Player player)
+        {
+            // Apply effects of the item if it is a favorited Music Box
+            if (item.favorited && item.IsMusicBox())
+            {
+                var wallSpeedBuff = false;
+                var tileSpeedBuff = false;
+                var tileRangeBuff = false;
+
+                player.VanillaUpdateEquip(item);
+                player.VanillaUpdateAccessory(player.whoAmI, item, false, ref wallSpeedBuff, ref tileSpeedBuff, ref tileRangeBuff);
             }
         }
 
