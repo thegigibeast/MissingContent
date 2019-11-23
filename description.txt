@@ -4,6 +4,7 @@ Here is a list of content that has been implemented for now (note that there mig
 * https://forums.terraria.org/index.php?threads/the-heated-mirror.80463/
 * https://forums.terraria.org/index.php?threads/allowing-music-boxes-to-play-in-vanity-slots.9402/
 * https://forums.terraria.org/index.php?threads/pumpkin-tools.13470/
+* https://forums.terraria.org/index.php?threads/cursed-bone-charm-and-snake-eyes.5347/
 
 Here is a list of mods that Missing Content: Suggestions is integrated with:
 * https://forums.terraria.org/index.php?threads/mod-helpers.63670/

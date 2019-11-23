@@ -1,9 +1,17 @@
+ItemName.CrossboneCharm=Crossbone Charm
+ItemName.CursedBoneCharm=Cursed Bone Charm
 ItemName.GourdSword=Gourd Sword
 ItemName.HeatedMirror=Heated Mirror
 ItemName.JackAxe=Jack Axe
 ItemName.PumpGun=Pump Gun
 ItemName.Pumpick=Pumpick
+ItemName.SnakeEmblem=Sname Emblem
+ItemName.SnakeEyes=Snake Eyes
 ItemName.TheSquash=The Squash
 
+ItemTooltip.CrossboneCharm=Increases duration of invincibility after being damaged\nEnemies who make contact become Confused for 1-2 seconds
+ItemTooltip.CursedBoneCharm=Enemies who make contact become Confused for 1-2 seconds
 ItemTooltip.HeatedMirror=Immunity to Chilled, Frozen and Petrified
 ItemTooltip.PumpGun=Fires two bullets at once!
+ItemTooltip.SnakeEmblem=7% increased damage\n+10% increased critical strike chance\nCritical hits have a 1/6 chance to inflict Venom for 2-12 seconds\nAttacks on enemies inflicted with Venom deal 12% more damage
+ItemTooltip.SnakeEyes=Critical hits have a 1/6 chance to inflict Venom for 2-12 seconds\nAttacks on enemies inflicted with Venom deal 12% more damage

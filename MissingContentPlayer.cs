@@ -1,11 +1,56 @@
 ﻿using MissingContent.Extensions;
+using MissingContent.Utils;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace MissingContent
 {
     public class MissingContentPlayer : ModPlayer
     {
+        #region Public Fields
+
+        public bool cursedBoneCharm;
+        public bool snakeEyes;
+
+        #endregion Public Fields
+
         #region Public Methods
+
+        public override void ModifyHitByNPC(NPC npc, ref int damage, ref bool crit)
+        {
+            if (cursedBoneCharm)
+            {
+                // Inflicts the debuff for 1-2 seconds
+                npc.AddBuff(BuffID.Confused, Main.rand.Next(1, 3) * 60);
+            }
+        }
+
+        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+        {
+            player.SnakeEyes(target, ref damage, crit);
+        }
+
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        {
+            player.SnakeEyes(target, ref damage, crit);
+        }
+
+        public override void ModifyHitPvp(Item item, Player target, ref int damage, ref bool crit)
+        {
+            player.SnakeEyes(target, ref damage, crit);
+        }
+
+        public override void ModifyHitPvpWithProj(Projectile proj, Player target, ref int damage, ref bool crit)
+        {
+            player.SnakeEyes(target, ref damage, crit);
+        }
+
+        public override void ResetEffects()
+        {
+            cursedBoneCharm = false;
+            snakeEyes = false;
+        }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
         {
