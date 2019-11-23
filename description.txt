@@ -1,1 +1,3 @@
-Missing Content: Suggestions is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+Missing Content: Suggestions is an open-source mod that aims to implement content from various player suggestions. Here is a list of content that has been implemented for now (note that there might be some tweaks to those suggestions in order to balance the content):
+
+* https://forums.terraria.org/index.php?threads/the-heated-mirror.80463/
