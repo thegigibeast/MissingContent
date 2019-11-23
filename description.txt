@@ -3,6 +3,7 @@ Missing Content: Suggestions is an open-source mod that aims to implement conten
 Here is a list of content that has been implemented for now (note that there might be some tweaks to those suggestions in order to balance the content). Content can include items, NPCs, mechanics and much more:
 * https://forums.terraria.org/index.php?threads/the-heated-mirror.80463/
 * https://forums.terraria.org/index.php?threads/allowing-music-boxes-to-play-in-vanity-slots.9402/
+* https://forums.terraria.org/index.php?threads/pumpkin-tools.13470/
 
 Here is a list of mods that Missing Content: Suggestions is integrated with:
 * https://forums.terraria.org/index.php?threads/mod-helpers.63670/
