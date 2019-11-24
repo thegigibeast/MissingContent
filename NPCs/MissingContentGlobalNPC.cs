@@ -13,10 +13,83 @@ namespace MissingContent.NPCs
         {
             switch (npc.type)
             {
+                case NPCID.Flocko:
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        target.AddBuff(BuffID.Chilled, 20 * 60);
+                    }
+                    break;
+
                 case NPCID.FlyingSnake:
-                    // Inflicts Venom for 8 (16) seconds
-                    var time = Main.expertMode ? 16 : 8;
-                    target.AddBuff(BuffID.Venom, time * 60);
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        target.AddBuff(BuffID.Venom, 7 * 60);
+                    }
+                    break;
+
+                case NPCID.GiantCursedSkull:
+                    if (Main.rand.Next(3) == 0)
+                    {
+                        target.AddBuff(BuffID.Cursed, 6 * 60);
+                    }
+                    break;
+
+                case NPCID.GiantFlyingFox:
+                    if (Main.rand.Next(8) == 0)
+                    {
+                        target.AddBuff(BuffID.Bleeding, 30 * 60);
+                    }
+                    break;
+
+                case NPCID.Hellhound:
+                    if (Main.rand.Next(6) == 0)
+                    {
+                        target.AddBuff(BuffID.Darkness, 15 * 60);
+                    }
+
+                    if (Main.rand.Next(8) == 0)
+                    {
+                        target.AddBuff(BuffID.Bleeding, 40 * 60);
+                    }
+                    break;
+
+                case NPCID.JungleCreeper:
+                case NPCID.JungleCreeperWall:
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        target.AddBuff(BuffID.Venom, 6 * 60);
+                    }
+                    break;
+
+                case NPCID.Poltergeist:
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        target.AddBuff(BuffID.Blackout, 2 * 60);
+                    }
+                    break;
+
+                case NPCID.RustyArmoredBonesAxe:
+                case NPCID.RustyArmoredBonesFlail:
+                case NPCID.RustyArmoredBonesSword:
+                case NPCID.RustyArmoredBonesSwordNoArmor:
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        target.AddBuff(BuffID.Weak, 60 * 60);
+                    }
+                    break;
+
+                case NPCID.Splinterling:
+                    if (Main.rand.Next(10) == 0)
+                    {
+                        target.AddBuff(BuffID.Bleeding, 30 * 60);
+                    }
+                    break;
+
+                case NPCID.Yeti:
+                    if (Main.rand.Next(3) == 0)
+                    {
+                        target.AddBuff(BuffID.BrokenArmor, 60 * 60);
+                    }
                     break;
             }
         }
