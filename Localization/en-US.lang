@@ -11,7 +11,13 @@ ItemName.TheSquash=The Squash
 
 ItemTooltip.CrossboneCharm=Increases duration of invincibility after being damaged\nEnemies who make contact become Confused for 1-2 seconds
 ItemTooltip.CursedBoneCharm=Enemies who make contact become Confused for 1-2 seconds
-ItemTooltip.HeatedMirror=Immunity to Chilled, Frozen and Petrified
+ItemTooltip.HeatedMirror=Immunity to Chilled and Petrified\nResistance to Frozen
 ItemTooltip.PumpGun=Fires two bullets at once!
 ItemTooltip.SnakeEmblem=7% increased damage\n+10% increased critical strike chance\nCritical hits have a 1/6 chance to inflict Venom for 2-12 seconds\nAttacks on enemies inflicted with Venom deal 12% more damage
 ItemTooltip.SnakeEyes=Critical hits have a 1/6 chance to inflict Venom for 2-12 seconds\nAttacks on enemies inflicted with Venom deal 12% more damage
+
+ItemTooltipAddition.AnkhCharm=Grants resistance to some debuffs
+ItemTooltipAddition.Bezoar=Resistance to Venom
+ItemTooltipAddition.Blindfold=Resistance to Blackout
+ItemTooltipAddition.HandWarmer=Immunity to Chilled\nResistance to Frozen
+ItemTooltipAddition.ObsidianSkull=Immunity to On Fire!

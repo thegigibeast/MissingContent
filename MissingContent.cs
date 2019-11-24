@@ -2,6 +2,7 @@ using MissingContent.Extensions;
 using MonoMod.Cil;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace MissingContent
@@ -30,6 +31,8 @@ namespace MissingContent
         public override void Load()
         {
             IL.Terraria.UI.ItemSlot.MouseHover_ItemArray_int_int += ItemSlot_MouseHover_ItemArray_int_int;
+
+            On.Terraria.Player.AddBuff += Player_AddBuff;
         }
 
         #endregion Public Methods
@@ -50,6 +53,39 @@ namespace MissingContent
                 {
                     return !(Main.HoverItem.IsMusicBox());
                 });
+            }
+        }
+
+        private void Player_AddBuff(On.Terraria.Player.orig_AddBuff orig, Player self, int type, int time1, bool quiet)
+        {
+            var applyBuff = true;
+            switch (type)
+            {
+                case BuffID.Blackout:
+                    if (self.GetModPlayer<MissingContentPlayer>().blackoutResistance && Main.rand.Next(2) == 0)
+                    {
+                        applyBuff = false;
+                    }
+                    break;
+
+                case BuffID.Frozen:
+                    if (self.GetModPlayer<MissingContentPlayer>().frozenResistance && Main.rand.Next(2) == 0)
+                    {
+                        applyBuff = false;
+                    }
+                    break;
+
+                case BuffID.Venom:
+                    if (self.GetModPlayer<MissingContentPlayer>().venomResistance && Main.rand.Next(2) == 0)
+                    {
+                        applyBuff = false;
+                    }
+                    break;
+            }
+
+            if (applyBuff)
+            {
+                orig(self, type, time1, quiet);
             }
         }
 

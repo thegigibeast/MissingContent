@@ -98,16 +98,6 @@ namespace MissingContent.NPCs
         {
             switch (npc.type)
             {
-                case NPCID.ArmoredViking:
-                case NPCID.UndeadViking:
-                    // 1% chance (2% in expert) to drop
-                    var chance = Main.expertMode ? 50 : 100;
-                    if (Main.rand.Next(chance) == 0)
-                    {
-                        Item.NewItem(npc.getRect(), ItemID.HandWarmer);
-                    }
-                    break;
-
                 case NPCID.CursedSkull:
                     if (Main.rand.Next(75) == 0)
                     {
@@ -119,6 +109,20 @@ namespace MissingContent.NPCs
                     if (Main.rand.Next(360) == 0)
                     {
                         Item.NewItem(npc.getRect(), ModContent.ItemType<SnakeEyes>());
+                    }
+                    break;
+
+                case NPCID.IceBat:
+                case NPCID.IceGolem:
+                case NPCID.IceQueen:
+                case NPCID.IceSlime:
+                case NPCID.IcyMerman:
+                case NPCID.SpikedIceSlime:
+                    // 1% chance (2% in expert) to drop
+                    var chance = Main.expertMode ? 50 : 100;
+                    if (Main.rand.Next(chance) == 0)
+                    {
+                        Item.NewItem(npc.getRect(), ItemID.HandWarmer);
                     }
                     break;
             }

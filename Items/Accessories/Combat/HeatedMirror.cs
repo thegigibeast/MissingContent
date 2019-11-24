@@ -37,8 +37,8 @@ namespace MissingContent.Items.Accessories.Combat
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.buffImmune[BuffID.Chilled] = true;
-            player.buffImmune[BuffID.Frozen] = true;
             player.buffImmune[BuffID.Stoned] = true;
+            player.GetModPlayer<MissingContentPlayer>().frozenResistance = true;
         }
 
         #endregion Public Methods

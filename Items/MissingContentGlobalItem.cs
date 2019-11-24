@@ -1,6 +1,8 @@
-﻿using MissingContent.Extensions;
+﻿using System.Collections.Generic;
+using MissingContent.Extensions;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace MissingContent.Items
@@ -8,6 +10,44 @@ namespace MissingContent.Items
     public class MissingContentGlobalItem : GlobalItem
     {
         #region Public Methods
+
+        public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+        {
+            var index = 0;
+
+            switch (item.type)
+            {
+                case ItemID.AnkhCharm:
+                case ItemID.AnkhShield:
+                    index = tooltips.FindLastIndex(x => x.Name.Contains("Tooltip")) + 1;
+                    tooltips.Insert(index, new TooltipLine(mod, "Tooltip", Language.GetTextValue("Mods.MissingContent.ItemTooltipAddition.AnkhCharm")));
+                    break;
+
+                case ItemID.Bezoar:
+                case ItemID.MedicatedBandage:
+                    index = tooltips.FindLastIndex(x => x.Name.Contains("Tooltip")) + 1;
+                    tooltips.Insert(index, new TooltipLine(mod, "Tooltip", Language.GetTextValue("Mods.MissingContent.ItemTooltipAddition.Bezoar")));
+                    break;
+
+                case ItemID.Blindfold:
+                    index = tooltips.FindLastIndex(x => x.Name.Contains("Tooltip")) + 1;
+                    tooltips.Insert(index, new TooltipLine(mod, "Tooltip", Language.GetTextValue("Mods.MissingContent.ItemTooltipAddition.Blindfold")));
+                    break;
+
+                case ItemID.HandWarmer:
+                    tooltips.Find(x => x.Name.Contains("Tooltip")).text = Language.GetTextValue("Mods.MissingContent.ItemTooltipAddition.HandWarmer");
+                    break;
+
+                case ItemID.LavaWaders:
+                case ItemID.ObsidianHorseshoe:
+                case ItemID.ObsidianShield:
+                case ItemID.ObsidianSkull:
+                case ItemID.ObsidianWaterWalkingBoots:
+                    index = tooltips.FindLastIndex(x => x.Name.Contains("Tooltip")) + 1;
+                    tooltips.Insert(index, new TooltipLine(mod, "Tooltip", Language.GetTextValue("Mods.MissingContent.ItemTooltipAddition.ObsidianSkull")));
+                    break;
+            }
+        }
 
         public override bool PreOpenVanillaBag(string context, Player player, int arg)
         {
@@ -27,12 +67,42 @@ namespace MissingContent.Items
         {
             switch (item.type)
             {
-                // Adds the Heated Mirror immunities to the items it is crafted into
                 case ItemID.AnkhCharm:
-                case ItemID.AnkhShield:
                     player.buffImmune[BuffID.Chilled] = true;
-                    player.buffImmune[BuffID.Frozen] = true;
                     player.buffImmune[BuffID.Stoned] = true;
+                    player.GetModPlayer<MissingContentPlayer>().blackoutResistance = true;
+                    player.GetModPlayer<MissingContentPlayer>().venomResistance = true;
+                    player.GetModPlayer<MissingContentPlayer>().frozenResistance = true;
+                    break;
+
+                case ItemID.AnkhShield:
+                    player.buffImmune[BuffID.OnFire] = true;
+                    player.buffImmune[BuffID.Stoned] = true;
+                    player.GetModPlayer<MissingContentPlayer>().blackoutResistance = true;
+                    player.GetModPlayer<MissingContentPlayer>().venomResistance = true;
+                    player.GetModPlayer<MissingContentPlayer>().frozenResistance = true;
+                    break;
+
+                case ItemID.Bezoar:
+                case ItemID.MedicatedBandage:
+                    player.GetModPlayer<MissingContentPlayer>().venomResistance = true;
+                    break;
+
+                case ItemID.Blindfold:
+                    player.GetModPlayer<MissingContentPlayer>().blackoutResistance = true;
+                    break;
+
+                case ItemID.HandWarmer:
+                    player.buffImmune[BuffID.Frozen] = false;
+                    player.GetModPlayer<MissingContentPlayer>().frozenResistance = true;
+                    break;
+
+                case ItemID.LavaWaders:
+                case ItemID.ObsidianHorseshoe:
+                case ItemID.ObsidianShield:
+                case ItemID.ObsidianSkull:
+                case ItemID.ObsidianWaterWalkingBoots:
+                    player.buffImmune[BuffID.OnFire] = true;
                     break;
             }
         }

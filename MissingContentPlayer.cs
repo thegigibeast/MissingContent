@@ -10,8 +10,11 @@ namespace MissingContent
     {
         #region Public Fields
 
+        public bool blackoutResistance;
         public bool cursedBoneCharm;
+        public bool frozenResistance;
         public bool snakeEyes;
+        public bool venomResistance;
 
         #endregion Public Fields
 
@@ -48,8 +51,11 @@ namespace MissingContent
 
         public override void ResetEffects()
         {
+            blackoutResistance = false;
             cursedBoneCharm = false;
+            frozenResistance = false;
             snakeEyes = false;
+            venomResistance = false;
         }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
